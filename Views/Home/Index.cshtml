@@ -1,8 +1,23 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+﻿<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-6">
+			<form method="post" action="@Url.Action("OpenAIGPT")">
+				<div class="form-group">
+					<textarea class="form-control" name="query" id="query" placeholder="Enter text" rows="4"></textarea>
+				</div>
+				<br />
+				<div class="form-group">
+					<label for="selectedLanguage">Select language: </label>
+					<select class="form-control" name="selectedLanguage" id="selectedLanguage">
+						@foreach(var language in ViewBag.Languages)
+						{
+							<option value="@language.Text">@language.Text</option>
+						}
+					</select>
+				</div>
+				<br />
+				<button type="submit" class="btn btn-success">Translate</button>
+			</form>
+		</div>
+	</div>
 </div>
