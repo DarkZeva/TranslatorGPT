@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "BXSpNnWzjXU2Q7zvCkYUCTGBN+zfD4FosUH06v0uXYMGGGBMSWwL58ImHSyvAu6wVc7i2itCSGFrJ9tECR8ZxQ==",
+  "dgSpecHash": "ExrYsH13ctJ+po5UFDz+os46hxYnCY1HrVMhZQB5OzyCWMmDgyGUNtQLmhFmUzHMzsWFV/kJL/yniqylFb94rQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\darkz\\source\\repos\\TranslateGPT\\TranslateGPT\\TranslateGPT.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\darkz\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

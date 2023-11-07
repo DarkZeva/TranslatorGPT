@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.ObjectPool;
+using Newtonsoft.Json;
 using System.Diagnostics;
+using System.Text;
+using System.Text.Json.Serialization;
 using TranslateGPT.Models;
 
 namespace TranslateGPT.Controllers
@@ -44,7 +48,23 @@ namespace TranslateGPT.Controllers
             var openAPIKey = _configuration["OpenAI:ApiKey"];
             _httpClient.DefaultRequestHeaders.Add("Authorization", $"Bearer {openAPIKey}");
 
-            return Ok();
+            var payload = new
+            {
+                model = "gpt-3.5-turbo-1106",
+				messages = new object[]
+                {
+                    new { role = "system", content = $"Translate to {selectedLanguage}"},
+                    new { role = "user", content = query}
+                },
+				temperature = 0,
+				max_tokens = 256
+			};
+            string jsonPayload = JsonConvert.SerializeObject(payload);
+            HttpContent httpContent = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
+
+            var responseMessage = await _httpClient.PostAsync("https://api.openai.com/v1/chat/completions", httpContent);
+            var responseMessageJson = responseMessage.Content.ReadAsStringAsync();
+            return View();
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

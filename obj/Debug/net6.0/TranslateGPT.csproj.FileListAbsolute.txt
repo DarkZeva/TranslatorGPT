@@ -28,3 +28,6 @@ C:\Users\darkz\source\repos\TranslateGPT\TranslateGPT\obj\Debug\net6.0\refint\Tr
 C:\Users\darkz\source\repos\TranslateGPT\TranslateGPT\obj\Debug\net6.0\TranslateGPT.pdb
 C:\Users\darkz\source\repos\TranslateGPT\TranslateGPT\obj\Debug\net6.0\TranslateGPT.genruntimeconfig.cache
 C:\Users\darkz\source\repos\TranslateGPT\TranslateGPT\obj\Debug\net6.0\ref\TranslateGPT.dll
+C:\Users\darkz\source\repos\TranslateGPT\TranslateGPT\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\darkz\source\repos\TranslateGPT\TranslateGPT\obj\Debug\net6.0\TranslateGPT.csproj.AssemblyReference.cache
+C:\Users\darkz\source\repos\TranslateGPT\TranslateGPT\obj\Debug\net6.0\TranslateGPT.csproj.CopyComplete
