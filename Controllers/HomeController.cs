@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Text;
 using System.Text.Json.Serialization;
+using TranslateGPT.DTO;
 using TranslateGPT.Models;
 
 namespace TranslateGPT.Controllers
@@ -63,8 +64,13 @@ namespace TranslateGPT.Controllers
             HttpContent httpContent = new StringContent(jsonPayload, Encoding.UTF8, "application/json");
 
             var responseMessage = await _httpClient.PostAsync("https://api.openai.com/v1/chat/completions", httpContent);
-            var responseMessageJson = responseMessage.Content.ReadAsStringAsync();
-            return View();
+            var responseMessageJson = await responseMessage.Content.ReadAsStringAsync();
+
+            var response = JsonConvert.DeserializeObject<AIResponse>(responseMessageJson);
+
+            ViewBag.Result = response.Choices[0].Message.Content;
+			ViewBag.Languages = new SelectList(mostUsedLanguages);
+			return View("Index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

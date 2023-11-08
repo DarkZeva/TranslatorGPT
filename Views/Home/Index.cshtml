@@ -18,6 +18,16 @@
 				<br />
 				<button type="submit" class="btn btn-success">Translate</button>
 			</form>
+
+			@if(ViewBag.Result != null)
+			{
+				<div cite="mt-4">
+					<p>Result:</p>
+					<div class="alert alert-info">
+						@Html.Raw(ViewBag.Result)
+					</div>
+				</div>
+			}
 		</div>
 	</div>
 </div>
